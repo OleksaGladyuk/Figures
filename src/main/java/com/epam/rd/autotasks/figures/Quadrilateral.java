@@ -33,10 +33,10 @@ class Quadrilateral extends Figure {
 
     @Override
     public String pointsToString() {
-        return "(" + A.getX() + A.getY() + ")" + "(" + B.getX() + B.getY() + ")" + "(" + C.getX() + C.getY() + ")" + "(" + D.getX() + D.getY() + ")";
-     }
+        return "(" + A.getX() + "," + A.getY() + ")" + "(" + B.getX() + "," + B.getY() + ")" + "(" + C.getX() + "," + C.getY() + ")" + "(" + D.getX() + "," + D.getY() + ")";
+    }
     public String toString() {
-        return "[" + "(" + A.getX() + A.getY() + ")" + "(" + B.getX() + B.getY() + ")" + "(" + C.getX() + C.getY() + ")" + "(" + D.getX() + D.getY() + ")" + "]";
+        return "Quadrilateral[" + "(" + A.getX() + "," + A.getY() + ")" + "(" + B.getX() + "," + B.getY() + ")" + "(" + C.getX() + "," + C.getY() + ")" + "(" + D.getX() + "," + D.getY() + ")" + "]";
     }
 
     @Override

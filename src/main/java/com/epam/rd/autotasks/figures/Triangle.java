@@ -13,34 +13,37 @@ package com.epam.rd.autotasks.figures;
 
      @Override
      public double area() {
-         double area2 = Math.abs((a.getX() - c.getX()) * (b.getY() - a.getY()) -
-                 (a.getX() - b.getX()) * (c.getY() - a.getY())) / 2;
-         return area2;
+         double aLen = Math.sqrt(Math.pow(b.getX() - a.getX(), 2) + Math.pow(b.getY() - a.getY(), 2));
+         double cLen = Math.sqrt(Math.pow(c.getX() - a.getX(), 2) + Math.pow(c.getY() - a.getY(), 2));
+         double bLen = Math.sqrt(Math.pow(c.getX() - b.getX(), 2) + Math.pow(c.getY() - b.getY(), 2));
+         double halfPerimeter = (aLen + bLen + cLen) / 2;
+         double area = Math.sqrt(halfPerimeter * (halfPerimeter - aLen) * (halfPerimeter - bLen) * (halfPerimeter - cLen));
+         return area;
      }
 
      @Override
      public String pointsToString() {
-         return "(" + a.getX() + a.getY() + ")" + "(" + b.getX() + b.getY() + ")" + "(" + c.getX() + c.getY() + ")";
+         return "(" + a.getX() + "," + a.getY() + ")" + "(" + b.getX() + "," + b.getY() + ")" + "(" + c.getX() + "," + c.getY() + ")";
      }
 
      public String toString() {
-         return "[" + "(" + a.getX() + a.getY() + ")" + "(" + b.getX() + b.getY() + ")" + "(" + c.getX() + c.getY() + ")" + "]";
+         return "Triangle[" + "(" + a.getX() + "," + a.getY() + ")" + "(" + b.getX() + "," + b.getY() + ")" + "(" + c.getX() + "," + c.getY() + ")" + "]";
      }
 
      @Override
      public Point leftmostPoint() {
-             double minX = a.getX();
-             double minY = a.getY();
-             if (b.getX() < minX) {
-                 minX = b.getX();
-             } else {
-                 minY = b.getY();
-             }
-             if (c.getX() < minX) {
-                 minX = c.getX();
-             } else {
-                 minY = c.getY();
-             }
-             return new Point(minX, minY);
+         double minX = a.getX();
+         double minY = a.getY();
+         if (b.getX() < minX) {
+             minX = b.getX();
+         } else {
+             minY = b.getY();
          }
+         if (c.getX() < minX) {
+             minX = c.getX();
+         } else {
+             minY = c.getY();
+         }
+         return new Point(minX, minY);
      }
+ }
